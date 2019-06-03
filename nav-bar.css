@@ -1,0 +1,75 @@
+#navbar{
+  list-style-type: none;
+  background-color: black;
+  height: 70px;
+  width: 100%;
+
+  margin: 0;
+  padding-top: 20px;
+}
+
+.navbar_link {
+  float: left;
+  padding: 5px 2% 5px 0%;
+  text-align: center;
+}
+
+.nav_link {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+.nav_link:hover {
+  text-decoration: none;
+  color: white;
+}
+
+
+.symbol {
+  display: block;
+  float: left;
+  color: white;
+  margin: 2px 5px;
+}
+
+.user_link {
+  float: right;
+}
+
+
+li {
+    color: #111;
+    background: black;
+    display: block;
+    float: left;
+    padding: 5px;
+    position: relative;
+
+}
+
+li a {
+  color: #fff;
+}
+
+li:hover {
+    background: black;
+
+}
+
+ul li ul {
+    background: black;
+    visibility: hidden;
+    display: none;
+}
+
+ul li:hover > ul,
+ul li ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+.punct{
+  margin-left: 20px;
+
+}
