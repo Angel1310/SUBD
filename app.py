@@ -3,17 +3,17 @@ import sqlite3
 
 app = Flask(__name__)
 
-@app.route('/movie_form')
+@app.route('/movie_form', methods = ['POST', 'GET'])
 def movie_form():
-   return render_template("../film.html")
+   return render_template("film.html")
 
-@app.route('/actor_form')
+@app.route('/actor_form', methods = ['POST', 'GET'])
 def actor_form():
-   return render_template("../actor.html")
+   return render_template("actors.html")
 
-@app.route('/producer_form')
+@app.route('/producer_form', methods = ['POST', 'GET'])
 def producer_form():
-   return render_template("../company.html")
+   return render_template("company.html")
 
 @app.route('/create_movie', methods = ['POST', 'GET'])
 def create_movie():
