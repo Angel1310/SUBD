@@ -1,0 +1,22 @@
+.post{
+  text-align: center;
+  margin-top: 60px;
+}
+
+
+
+body{
+		background-image: url("https://img.freepik.com/vrije-vector/abstracte-machineachtergrond-met-de-raad-van-de-technologiekring_41981-1247.jpg?size=626&ext=jpg");
+		background-repeat: no-repeat;
+		background-size: 100%;
+		background-position: 100% 5;
+	}
+
+.post{
+  display: block;
+  float:inherit;
+  color: white;
+  text-align: center;
+  padding: 24px 16px;
+  text-decoration: none;
+}

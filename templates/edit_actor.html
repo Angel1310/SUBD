@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../SUBD/film.css">
-    <link rel="stylesheet" type="text/css" href="../SUBD/nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="../css/film.css">
+    <link rel="stylesheet" type="text/css" href="../css/nav-bar.css">
 
 
 
@@ -18,14 +18,15 @@
 <body>
     <div>
         <ul id="navbar">
-            <li class="navbar_link"><a class="nav_link" href="/home">Начало</a></li>
-            <li class="navbar_link"><a class="nav_link" href="/contacts">Контакти</a></li>
-      	    <li class="navbar_link"><a class="nav_link" href="/about">За проекта</a></li>
-      		  <li class="navbar_link"><a class="nav_link" href="" >Дарете сега</a>
+            <li class="navbar_link"><a class="nav_link" href="/home">home</a></li>
+            <li class="navbar_link"><a class="nav_link" href="/contacts">Movies</a></li>
+
+      		  <li class="navbar_link"><a class="nav_link" href="" >Add</a>
                 <ul>
                     <li>
-                        <a href="/online">Онлайн</a>
-                        <a class = "punct" href="/donators">Топ 3 дарители</a>
+                        <a href="/movie_form">Movie</a>
+                        <a class = "punct" href="/actor_form">Actors</a>
+                        <a class = "punct" href="/producer_form">Producer</a>
                     </li>
           		  </ul>
         		</li>
@@ -37,24 +38,24 @@
 
     <div class= "post">
 
-            <h2>Actors</h2>
+            <h2>Edit Actor</h2>
         <form action="http://localhost:5000/user" target="" method="POST">
             Name<br>
             <br>
             <input type="text" id="name" name="name" placeholder="Name" required autofocus>
-            <br>Years<br>
+            <br>Year<br>
             <br>
-            <input type="text" id="years" name="years" placeholder="Years" required autofocus>
+            <input type="text" id="year" name="year" placeholder="Year" required autofocus>
             <br>
-            <br>Films<br>
+            <br>Director<br>
             <br>
-            <input type="text" id="films" name="films" placeholder="Films" required autofocus>
+            <input type="text" id="director" name="director" placeholder="Director" required autofocus>
             <br>
 
             <br>
             <input type="submit" value="Submit">
         </form>
-s
+
     </div>
 </body>
 </html>
