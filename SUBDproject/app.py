@@ -17,7 +17,7 @@ def producer_form():
 
 @app.route('/create_movie', methods = ['POST', 'GET'])
 def create_movie():
-   
+
 	if request.method == 'POST':
 		try:
 			name = request.form['name']
@@ -41,7 +41,7 @@ def create_actor():
 		try:
 			name = request.form['name']
 			nationality = request.form['nationality']
-			
+
 
 			with sqlite3.connect("database.db") as con:
 				cur = con.cursor()
@@ -186,7 +186,7 @@ def delete_producer(producer_id):
 
 @app.route('/edit_movie/<int:movie_id>', methods = ['POST', 'GET'])
 def edit_movie(movie_id):
-   
+
 	if request.method == 'POST':
 		try:
 			name = request.form['name']
@@ -204,7 +204,7 @@ def edit_movie(movie_id):
 
 @app.route('/edit_actor/<int:actor_id>', methods = ['POST', 'GET'])
 def edit_actor(actor_id):
-   
+
 	if request.method == 'POST':
 		try:
 			name = request.form['name']
@@ -221,7 +221,7 @@ def edit_actor(actor_id):
 
 @app.route('/edit_producer/<int:producer_id>', methods = ['POST', 'GET'])
 def edit_producer(producer_id):
-   
+
 	if request.method == 'POST':
 		try:
 			name = request.form['name']
@@ -248,7 +248,6 @@ def chose_movie_act(actor_id, movie_id):
 	finally:
 		con.close()
 
-'''
+
 if __name__ == '__main__':
-	app.run(debug = True) 
-'''
+	app.run()
