@@ -4,7 +4,13 @@
 }
 
 
+input{
+color: black;
+}
+#button{
+  color: black;
 
+}
 body{
 		background-image: url("https://img.freepik.com/vrije-vector/abstracte-machineachtergrond-met-de-raad-van-de-technologiekring_41981-1247.jpg?size=626&ext=jpg");
 		background-repeat: no-repeat;

@@ -5,15 +5,15 @@ app = Flask(__name__)
 
 @app.route('/movie_form')
 def movie_form():
-   return render_template("../film.html")
+   return render_template('film.html')
 
 @app.route('/actor_form')
 def actor_form():
-   return render_template("../actor.html")
+   return render_template('actors.html')
 
 @app.route('/producer_form')
 def producer_form():
-   return render_template("../company.html")
+   return render_template('company.html')
 
 @app.route('/create_movie', methods = ['POST', 'GET'])
 def create_movie():
@@ -250,4 +250,4 @@ def chose_movie_act(actor_id, movie_id):
 
 
 if __name__ == '__main__':
-	app.run()
+	app.run(debug = True)
