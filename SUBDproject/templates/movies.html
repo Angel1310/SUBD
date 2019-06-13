@@ -35,12 +35,17 @@
 
         </ul>
     </div>
-    {% for movie in movies %}
+    <div id='list'>
+      {% for movie in movies %}
 
-      <h3>{{movie.name}}</h3>
+          {{movie[1]}}
+          {{movie[2]}}
+          {{movie[3]}}
+          <br>
+      {% endfor %}
+    </div>
 
 
-    {% endfor %}
 
 
 

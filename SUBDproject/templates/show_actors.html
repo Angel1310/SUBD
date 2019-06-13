@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../css/film.css">
-    <link rel="stylesheet" type="text/css" href="../css/nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/film.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/nav-bar.css">
 
 
 
@@ -35,13 +35,15 @@
 
         </ul>
     </div>
-    {% for producer in producers %}
+    <div id='list'>
+      {% for actor in actors %}
 
-      <h3>{{producer.name}}</h3>
+          {{actor[1]}}
+          {{actor[2]}}
 
-
-    {% endfor %}
-
+          <br>
+      {% endfor %}
+    </div>
 
 
 

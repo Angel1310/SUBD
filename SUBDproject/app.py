@@ -102,30 +102,45 @@ def show_movies():
 
 @app.route('/show_actors')
 def show_actors():
-	try:
-		with sqlite3.connect("database.db") as con:
-			cur = con.cursor()
-			cur.execute("SELECT * FROM actors")
-			con.commit()
-			actors = cur.fetchall()
-	except:
-		con.rollback()
-	finally:
-		con.close()
+    actors = []
+    try:
 
+
+
+            cur = mysql.connection.cursor()
+            resultValue = cur.execute("SELECT * FROM actor")
+            mysql.connection.commit()
+
+            if resultValue > 0:
+                actors = cur.fetchall()
+
+    except:
+        cur.rollback()
+    finally:
+        cur.close()
+
+        return render_template('show_actors.html', actors = actors)
 
 @app.route('/show_producers')
 def show_producers():
-	try:
-		with sqlite3.connect("database.db") as con:
-			cur = con.cursor()
-			cur.execute("SELECT * FROM producers")
-			con.commit()
-			producers = cur.fetchall()
-	except:
-		con.rollback()
-	finally:
-		con.close()
+    producer = []
+    try:
+
+
+
+            cur = mysql.connection.cursor()
+            resultValue = cur.execute("SELECT * FROM producer")
+            mysql.connection.commit()
+
+            if resultValue > 0:
+                producers = cur.fetchall()
+
+    except:
+        cur.rollback()
+    finally:
+        cur.close()
+
+        return render_template('show_producer.html', producers = producers)
 
 @app.route('/movie/<int:movie_id>')
 def movie(movie_id):
