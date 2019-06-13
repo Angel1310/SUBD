@@ -1,7 +1,16 @@
-from flask import Flask, render_template, flash, request, redirect, url_for
-import sqlite3
+from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_mysqldb import MySQL
+
 
 app = Flask(__name__)
+
+
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_DB'] = 'flaskapp'
+mysql = MySQL(app)
+
 
 @app.route('/movie_form')
 def movie_form():
@@ -17,70 +26,79 @@ def producer_form():
 
 @app.route('/create_movie', methods = ['POST', 'GET'])
 def create_movie():
+    if request.method == 'POST':
+        try:
 
-	if request.method == 'POST':
-		try:
-			name = request.form['name']
-			year = request.form['year']
-			director = request.form['director']
-			producer = request.form['producer']
+            name = request.form['name']
+            year = request.form['year']
+            director = request.form['director']
+            producer = request.form['producer']
+            cur = mysql.connection.cursor()
+            cur.execute("INSERT INTO movie2 (name, year, director, producer) VALUES (%s, %s, %s, %s)", (name, int(year), director, int(producer)))
+            mysql.connection.commit()
+        except:
+            cur.rollback()
+        finally:
+            cur.close()
 
-			with sqlite3.connect("database.db") as con:
-				cur = con.cursor()
-				cur.execute("INSERT INTO movie (name, year, director, producer) VALUES (?, ?, ?, ?)", (name, year, director, producer))
-				con.commit()
-		except:
-			con.rollback()
-		finally:
-			con.close()
+
+    return render_template('film.html')
 
 @app.route('/create_actor', methods = ['POST', 'GET'])
 def create_actor():
-	if request.method == 'POST':
+    if request.method == 'POST':
+        try:
 
-		try:
-			name = request.form['name']
-			nationality = request.form['nationality']
+            name = request.form['name']
+            nationality = request.form['nationality']
+            films = request.form['film']
+            cur = mysql.connection.cursor()
+            cur.execute("INSERT INTO actor (name, nationality, film) VALUES (%s, %s, %s)", (name, nationality, films))
+            mysql.connection.commit()
+        except:
+            cur.rollback()
+        finally:
+            cur.close()
 
-
-			with sqlite3.connect("database.db") as con:
-				cur = con.cursor()
-				cur.execute("INSERT INTO actor (name, nationality) VALUES (?, ?)", (name, nationality))
-				con.commit()
-		except:
-			con.rollback()
-		finally:
-			con.close()
+    return render_template('actors.html')
 
 @app.route('/create_producer', methods = ['POST', 'GET'])
 def create_producer():
-	if request.method == 'POST':
+    if request.method == 'POST':
+        try:
+            name = request.form['name']
+            capital = request.form['capital']
+            cur = mysql.connection.cursor()
+            cur.execute("INSERT INTO producer (name, capital) VALUES (%s, %s)", (name, int(capital)))
+            mysql.connection.commit()
 
-		try:
-			name = request.form['name']
-			capital = request.form['capital']
+        except:
+            cur.rollback()
+        finally:
+            cur.close()
 
-			with sqlite3.connect("database.db") as con:
-				cur = con.cursor()
-				cur.execute("INSERT INTO producer (name, capital) VALUES (?, ?, ?)", (name, capital))
-				con.commit()
-		except:
-			con.rollback()
-		finally:
-			con.close()
+    return render_template('company.html')
 
 @app.route('/show_movies')
 def show_movies():
-	try:
-		with sqlite3.connect("database.db") as con:
-			cur = con.cursor()
-			cur.execute("SELECT * FROM movies")
-			con.commit()
-			movies = cur.fetchall()
-	except:
-		con.rollback()
-	finally:
-		con.close()
+    movies = []
+    try:
+
+
+
+            cur = mysql.connection.cursor()
+            resultValue = cur.execute("SELECT * FROM movie2")
+            mysql.connection.commit()
+
+            if resultValue > 0:
+                movies = cur.fetchall()
+
+    except:
+        cur.rollback()
+    finally:
+        cur.close()
+
+        return render_template('movies.html', movies = movies)
 
 @app.route('/show_actors')
 def show_actors():
