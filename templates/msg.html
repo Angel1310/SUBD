@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../css/film.css">
-    <link rel="stylesheet" type="text/css" href="../css/nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/film.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/nav-bar.css">
 
 
 
@@ -19,7 +19,9 @@
     <div>
       <ul id="navbar">
           <li class="navbar_link"><a class="nav_link" href="/home">home</a></li>
-          <li class="navbar_link"><a class="nav_link" href="/contacts">Movies</a></li>
+          <li class="navbar_link"><a class="nav_link" href="/show_movies">Movies</a></li>
+          <li class="navbar_link"><a class="nav_link" href="/show_actors">Actors</a></li>
+          <li class="navbar_link"><a class="nav_link" href="/show_producers">Produsers</a></li>
 
           <li class="navbar_link"><a class="nav_link" href="" >Add</a>
               <ul>
@@ -35,27 +37,7 @@
 
         </ul>
     </div>
-
-    <div class= "post">
-
-            <h2>Producer</h2>
-        <form action="http://localhost:5000/user" target="" method="POST">
-            Name<br>
-            <br>
-            <input type="text" id="name" name="name" placeholder="Name" required autofocus>
-            <br>Years<br>
-            <br>
-            <input type="text" id="years" name="years" placeholder="Years" required autofocus>
-            <br>
-            <br>Films<br>
-            <br>
-            <input type="text" id="films" name="films" placeholder="Films" required autofocus>
-            <br>
-
-            <br>
-            <input type="submit" value="Submit">
-        </form>
-s
+        <h1 style="color: white">Home</h1>
     </div>
 </body>
 </html>

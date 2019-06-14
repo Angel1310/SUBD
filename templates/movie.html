@@ -21,32 +21,22 @@
             <li class="navbar_link"><a class="nav_link" href="/home">home</a></li>
             <li class="navbar_link"><a class="nav_link" href="/contacts">Movies</a></li>
 
-      		  <li class="navbar_link"><a class="nav_link" href="" >Add</a>
+              <li class="navbar_link"><a class="nav_link" href="" >Add</a>
                 <ul>
                     <li>
                         <a href="/movie_form">Movie</a>
                         <a class = "punct" href="/actor_form">Actors</a>
                         <a class = "punct" href="/producer_form">Producer</a>
                     </li>
-          		  </ul>
-        		</li>
+                  </ul>
+                </li>
 
 
 
         </ul>
     </div>
-    <div id='list'>
-      {% for actor in actors %}
-
-          {{actor[1]}}
-          {{actor[2]}}
-
-          <br>
-      {% endfor %}
-    </div>
-
-
-
-
+      <h1 style="color: white">{{movie[1]}}</h1>
+      <h1 style="color: white">{{movie[2]}}</h1>
+      <h1 style="color: white">{{movie[3]}}</h1>
+      <button><a href="/delete_movie/{{movie[0]}}">delete</a></button>
 </body>
-</html>

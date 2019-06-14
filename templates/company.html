@@ -9,8 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../css/film.css">
-    <link rel="stylesheet" type="text/css" href="../css/nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/film.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/nav-bar.css">
 
 
 
@@ -38,21 +38,18 @@
 
     <div class= "post">
 
-            <h2>Edit Producer</h2>
-        <form action="http://localhost:5000/user" target="" method="POST">
+            <h2>Producer</h2>
+        <form action="http://localhost:5000/create_producer" target="" method="POST">
             Name<br>
             <br>
             <input type="text" id="name" name="name" placeholder="Name" required autofocus>
-            <br>Years<br>
+            <br>Capitals<br>
             <br>
-            <input type="text" id="years" name="years" placeholder="Years" required autofocus>
+            <input type="text" id="capital" name="capital" placeholder="Capital" required autofocus>
             <br>
-            <br>Films<br>
+
             <br>
-            <input type="text" id="films" name="films" placeholder="Films" required autofocus>
-            <br>
-              <input id="button" type="submit" value="Submit">
-            <br>
+            <input id="button" type="submit" value="Submit">
         </form>
 s
     </div>
