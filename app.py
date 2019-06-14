@@ -70,8 +70,8 @@ def create_producer():
 				cur = con.cursor()
 				cur.execute("INSERT INTO producer(name, capital) VALUES (?, ?)", (name, int(capital)))
 				con.commit()
-
-		except:
+		except Exception as e:
+			return e
 			con.rollback()
 		finally:
 			con.close()
